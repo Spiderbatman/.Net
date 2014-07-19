@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="835ab90e506a409b946acc505ab682a1" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="BankDBModel.Debitor" Width="1.5" PointX="0.625" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankDBModel.AppUser" Width="1.5" PointX="4.25" PointY="1.625" />
+        <EntityTypeShape EntityType="BankDBModel.Bid" Width="1.5" PointX="1.2597793551440253" PointY="25.039287847019402" />
+        <AssociationConnector Association="BankDBModel.FK_Bids_AppUsers" />
+        <AssociationConnector Association="BankDBModel.FK_Bids_Debitors" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

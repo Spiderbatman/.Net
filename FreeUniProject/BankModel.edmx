@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BankDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BankDBModelStoreContainer">
+          <EntitySet Name="AppUsers" EntityType="BankDBModel.Store.AppUsers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bids" EntityType="BankDBModel.Store.Bids" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Debitors" EntityType="BankDBModel.Store.Debitors" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Bids_AppUsers" Association="BankDBModel.Store.FK_Bids_AppUsers">
+            <End Role="AppUsers" EntitySet="AppUsers" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_Debitors" Association="BankDBModel.Store.FK_Bids_Debitors">
+            <End Role="Debitors" EntitySet="Debitors" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AppUsers">
+          <Key>
+            <PropertyRef Name="AppUserID" />
+          </Key>
+          <Property Name="AppUserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AppUserName" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="AppUserPass" Type="varchar" Nullable="false" MaxLength="512" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="AppUserType" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bids">
+          <Key>
+            <PropertyRef Name="BidID" />
+          </Key>
+          <Property Name="BidID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DebitorID" Type="int" Nullable="false" />
+          <Property Name="JobExperience" Type="tinyint" Nullable="false" />
+          <Property Name="BidDate" Type="datetime" Nullable="false" />
+          <Property Name="BidCreator" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="BidStatus" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Debitors">
+          <Key>
+            <PropertyRef Name="DebitorID" />
+          </Key>
+          <Property Name="DebitorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PersonalID" Type="char" Nullable="false" MaxLength="11" />
+          <Property Name="FName" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="LName" Type="nvarchar" Nullable="false" MaxLength="35" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bids_AppUsers">
+          <End Role="AppUsers" Type="BankDBModel.Store.AppUsers" Multiplicity="1" />
+          <End Role="Bids" Type="BankDBModel.Store.Bids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUsers">
+              <PropertyRef Name="AppUserID" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="BidCreator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_Debitors">
+          <End Role="Debitors" Type="BankDBModel.Store.Debitors" Multiplicity="1" />
+          <End Role="Bids" Type="BankDBModel.Store.Bids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debitors">
+              <PropertyRef Name="DebitorID" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="DebitorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BankDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BankDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Debitors" EntityType="BankDBModel.Debitor" />
+          <EntitySet Name="AppUsers" EntityType="BankDBModel.AppUser" />
+          <EntitySet Name="Bids" EntityType="BankDBModel.Bid" />
+          <AssociationSet Name="FK_Bids_AppUsers" Association="BankDBModel.FK_Bids_AppUsers">
+            <End Role="AppUser" EntitySet="AppUsers" />
+            <End Role="Bid" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_Debitors" Association="BankDBModel.FK_Bids_Debitors">
+            <End Role="Debitor" EntitySet="Debitors" />
+            <End Role="Bid" EntitySet="Bids" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Debitor">
+          <Key>
+            <PropertyRef Name="DebitorID" />
+          </Key>
+          <Property Name="DebitorID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonalID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
+          <Property Name="FName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="LName" Type="String" Nullable="false" MaxLength="35" Unicode="true" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Bids" Relationship="BankDBModel.FK_Bids_Debitors" FromRole="Debitor" ToRole="Bid" />
+        </EntityType>
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="AppUserID" />
+          </Key>
+          <Property Type="Int32" Name="AppUserID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="AppUserName" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AppUserPass" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Byte" Name="AppUserType" Nullable="false" />
+          <NavigationProperty Name="Bids" Relationship="BankDBModel.FK_Bids_AppUsers" FromRole="AppUser" ToRole="Bid" />
+        </EntityType>
+        <EntityType Name="Bid">
+          <Key>
+            <PropertyRef Name="BidID" />
+          </Key>
+          <Property Type="Int64" Name="BidID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DebitorID" Nullable="false" />
+          <Property Type="Byte" Name="JobExperience" Nullable="false" />
+          <Property Type="DateTime" Name="BidDate" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="BidCreator" Nullable="false" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="15" Scale="2" />
+          <Property Type="Byte" Name="BidStatus" Nullable="false" />
+          <NavigationProperty Name="AppUser" Relationship="BankDBModel.FK_Bids_AppUsers" FromRole="Bid" ToRole="AppUser" />
+          <NavigationProperty Name="Debitor" Relationship="BankDBModel.FK_Bids_Debitors" FromRole="Bid" ToRole="Debitor" />
+        </EntityType>
+        <Association Name="FK_Bids_AppUsers">
+          <End Type="BankDBModel.AppUser" Role="AppUser" Multiplicity="1" />
+          <End Type="BankDBModel.Bid" Role="Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="AppUserID" />
+            </Principal>
+            <Dependent Role="Bid">
+              <PropertyRef Name="BidCreator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_Debitors">
+          <End Type="BankDBModel.Debitor" Role="Debitor" Multiplicity="1" />
+          <End Type="BankDBModel.Bid" Role="Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debitor">
+              <PropertyRef Name="DebitorID" />
+            </Principal>
+            <Dependent Role="Bid">
+              <PropertyRef Name="DebitorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BankDBModelStoreContainer" CdmEntityContainer="BankDBEntities">
+          <EntitySetMapping Name="Debitors">
+            <EntityTypeMapping TypeName="BankDBModel.Debitor">
+              <MappingFragment StoreEntitySet="Debitors">
+                <ScalarProperty Name="DebitorID" ColumnName="DebitorID" />
+                <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppUsers">
+            <EntityTypeMapping TypeName="BankDBModel.AppUser">
+              <MappingFragment StoreEntitySet="AppUsers">
+                <ScalarProperty Name="AppUserType" ColumnName="AppUserType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AppUserPass" ColumnName="AppUserPass" />
+                <ScalarProperty Name="AppUserName" ColumnName="AppUserName" />
+                <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bids">
+            <EntityTypeMapping TypeName="BankDBModel.Bid">
+              <MappingFragment StoreEntitySet="Bids">
+                <ScalarProperty Name="BidStatus" ColumnName="BidStatus" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="BidCreator" ColumnName="BidCreator" />
+                <ScalarProperty Name="BidDate" ColumnName="BidDate" />
+                <ScalarProperty Name="JobExperience" ColumnName="JobExperience" />
+                <ScalarProperty Name="DebitorID" ColumnName="DebitorID" />
+                <ScalarProperty Name="BidID" ColumnName="BidID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

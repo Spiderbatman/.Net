@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BankDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BankDBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Debitors" EntityType="BankDBModel.Debitor" />
+    <EntitySet Name="AppUsers" EntityType="BankDBModel.AppUser" />
+    <EntitySet Name="Bids" EntityType="BankDBModel.Bid" />
+    <AssociationSet Name="FK_Bids_AppUsers" Association="BankDBModel.FK_Bids_AppUsers">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="Bid" EntitySet="Bids" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bids_Debitors" Association="BankDBModel.FK_Bids_Debitors">
+      <End Role="Debitor" EntitySet="Debitors" />
+      <End Role="Bid" EntitySet="Bids" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Debitor">
+    <Key>
+      <PropertyRef Name="DebitorID" />
+    </Key>
+    <Property Name="DebitorID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonalID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
+    <Property Name="FName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="LName" Type="String" Nullable="false" MaxLength="35" Unicode="true" FixedLength="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Bids" Relationship="BankDBModel.FK_Bids_Debitors" FromRole="Debitor" ToRole="Bid" />
+  </EntityType>
+  <EntityType Name="AppUser">
+    <Key>
+      <PropertyRef Name="AppUserID" />
+    </Key>
+    <Property Type="Int32" Name="AppUserID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AppUserName" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AppUserPass" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Byte" Name="AppUserType" Nullable="false" />
+    <NavigationProperty Name="Bids" Relationship="BankDBModel.FK_Bids_AppUsers" FromRole="AppUser" ToRole="Bid" />
+  </EntityType>
+  <EntityType Name="Bid">
+    <Key>
+      <PropertyRef Name="BidID" />
+    </Key>
+    <Property Type="Int64" Name="BidID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="DebitorID" Nullable="false" />
+    <Property Type="Byte" Name="JobExperience" Nullable="false" />
+    <Property Type="DateTime" Name="BidDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="BidCreator" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="15" Scale="2" />
+    <Property Type="Byte" Name="BidStatus" Nullable="false" />
+    <NavigationProperty Name="AppUser" Relationship="BankDBModel.FK_Bids_AppUsers" FromRole="Bid" ToRole="AppUser" />
+    <NavigationProperty Name="Debitor" Relationship="BankDBModel.FK_Bids_Debitors" FromRole="Bid" ToRole="Debitor" />
+  </EntityType>
+  <Association Name="FK_Bids_AppUsers">
+    <End Type="BankDBModel.AppUser" Role="AppUser" Multiplicity="1" />
+    <End Type="BankDBModel.Bid" Role="Bid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="AppUserID" />
+      </Principal>
+      <Dependent Role="Bid">
+        <PropertyRef Name="BidCreator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bids_Debitors">
+    <End Type="BankDBModel.Debitor" Role="Debitor" Multiplicity="1" />
+    <End Type="BankDBModel.Bid" Role="Bid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Debitor">
+        <PropertyRef Name="DebitorID" />
+      </Principal>
+      <Dependent Role="Bid">
+        <PropertyRef Name="DebitorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

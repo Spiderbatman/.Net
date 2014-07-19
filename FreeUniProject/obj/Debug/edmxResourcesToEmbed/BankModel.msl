@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BankDBModelStoreContainer" CdmEntityContainer="BankDBEntities">
+    <EntitySetMapping Name="Debitors">
+      <EntityTypeMapping TypeName="BankDBModel.Debitor">
+        <MappingFragment StoreEntitySet="Debitors">
+          <ScalarProperty Name="DebitorID" ColumnName="DebitorID" />
+          <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUsers">
+      <EntityTypeMapping TypeName="BankDBModel.AppUser">
+        <MappingFragment StoreEntitySet="AppUsers">
+          <ScalarProperty Name="AppUserType" ColumnName="AppUserType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AppUserPass" ColumnName="AppUserPass" />
+          <ScalarProperty Name="AppUserName" ColumnName="AppUserName" />
+          <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bids">
+      <EntityTypeMapping TypeName="BankDBModel.Bid">
+        <MappingFragment StoreEntitySet="Bids">
+          <ScalarProperty Name="BidStatus" ColumnName="BidStatus" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="BidCreator" ColumnName="BidCreator" />
+          <ScalarProperty Name="BidDate" ColumnName="BidDate" />
+          <ScalarProperty Name="JobExperience" ColumnName="JobExperience" />
+          <ScalarProperty Name="DebitorID" ColumnName="DebitorID" />
+          <ScalarProperty Name="BidID" ColumnName="BidID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

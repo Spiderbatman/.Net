@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BankDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BankDBModelStoreContainer">
+    <EntitySet Name="AppUsers" EntityType="BankDBModel.Store.AppUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bids" EntityType="BankDBModel.Store.Bids" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Debitors" EntityType="BankDBModel.Store.Debitors" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Bids_AppUsers" Association="BankDBModel.Store.FK_Bids_AppUsers">
+      <End Role="AppUsers" EntitySet="AppUsers" />
+      <End Role="Bids" EntitySet="Bids" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bids_Debitors" Association="BankDBModel.Store.FK_Bids_Debitors">
+      <End Role="Debitors" EntitySet="Debitors" />
+      <End Role="Bids" EntitySet="Bids" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AppUsers">
+    <Key>
+      <PropertyRef Name="AppUserID" />
+    </Key>
+    <Property Name="AppUserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AppUserName" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="AppUserPass" Type="varchar" Nullable="false" MaxLength="512" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AppUserType" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bids">
+    <Key>
+      <PropertyRef Name="BidID" />
+    </Key>
+    <Property Name="BidID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DebitorID" Type="int" Nullable="false" />
+    <Property Name="JobExperience" Type="tinyint" Nullable="false" />
+    <Property Name="BidDate" Type="datetime" Nullable="false" />
+    <Property Name="BidCreator" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="BidStatus" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Debitors">
+    <Key>
+      <PropertyRef Name="DebitorID" />
+    </Key>
+    <Property Name="DebitorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PersonalID" Type="char" Nullable="false" MaxLength="11" />
+    <Property Name="FName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="LName" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="BirthDate" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Bids_AppUsers">
+    <End Role="AppUsers" Type="BankDBModel.Store.AppUsers" Multiplicity="1" />
+    <End Role="Bids" Type="BankDBModel.Store.Bids" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUsers">
+        <PropertyRef Name="AppUserID" />
+      </Principal>
+      <Dependent Role="Bids">
+        <PropertyRef Name="BidCreator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bids_Debitors">
+    <End Role="Debitors" Type="BankDBModel.Store.Debitors" Multiplicity="1" />
+    <End Role="Bids" Type="BankDBModel.Store.Bids" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Debitors">
+        <PropertyRef Name="DebitorID" />
+      </Principal>
+      <Dependent Role="Bids">
+        <PropertyRef Name="DebitorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
