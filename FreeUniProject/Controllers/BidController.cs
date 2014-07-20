@@ -53,9 +53,50 @@ namespace FreeUniProject.Controllers
 
            
             IQueryable<Bid> bids;
-            decimal d = Decimal.Parse(vals["Amount"]);
-            bids = db.Bids.Include(b => b.AppUser).Include(b => b.Debitor).Where(
-                r => r.Amount == d);
+
+           
+          
+            bids = db.Bids.Include(b => b.AppUser).Include(b => b.Debitor);
+
+          /*  if (vals["DebitorID"].Length > 0)
+            {
+                
+                int d = int.Parse(vals["DebitorID"]);
+                bids = bids.Where(r => r.Debitor.DebitorID == d);
+            }*/
+            if (vals["JobExperience"].Length > 0)
+            {
+                decimal d = Decimal.Parse(vals["JobExperience"]);
+                bids = bids.Where(r => r.JobExperience == d);
+            }
+            if (vals["Amount"].Length > 0)
+            {
+                   
+               decimal d = Decimal.Parse(vals["Amount"]);
+               bids = bids.Where(r => r.Amount == d);
+            }
+            if (vals["BidDate"].Length > 0)
+            {
+                System.DateTime d = Convert.ToDateTime(vals["BidDate"]);
+                bids = bids.Where(r =>  DateTime.Compare(r.BidDate,d) == 0);
+            }
+
+
+            if (vals["BidCreator"].Length > 0)
+            {
+
+                String s = vals["BidCreator"];
+                bids = bids.Where(r => (r.AppUser.AppUserName).Equals(s));
+            }
+            
+            
+
+            if (vals["BidStatus"].Length > 0)
+            {
+                decimal d = decimal.Parse(vals["BidStatus"]);
+                bids = bids.Where(r => r.BidStatus == d);
+            }
+            
    
             return View("Index", bids.ToList());
         }
