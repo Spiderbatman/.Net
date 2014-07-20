@@ -20,6 +20,7 @@
         <%:  Html.ActionLink("ახალი გაnაცხდი", "Create", "Bid") %> <br />
         <%} %>
          <%: Html.ActionLink("განაცხადები", "Index", "Bid") %> <br />
+        <%: Html.ActionLink("დეიტორი","Index", "Debitor") %> <br />
     </div>
 </body>
 </html>

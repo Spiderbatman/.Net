@@ -16,7 +16,10 @@
     <table>
         <tr>
             <th>
-                <%: Html.DisplayNameFor(model => model.Debitor.PersonalID) %>
+                <%: Html.DisplayNameFor(model => model.Debitor.FName) %>
+            </th>
+            <th>
+                <%: Html.DisplayNameFor(model => model.Debitor.LName) %>
             </th>
             <th>
                 <%: Html.DisplayNameFor(model => model.JobExperience) %>
@@ -40,8 +43,11 @@
            
            <% FreeUniProject.Bid bid = new FreeUniProject.Bid(); %>
             <td>
-                <%: Html.TextBox("DebitorID") %>
+                <%: Html.TextBox("DebitorFName") %>
             </td>
+           <td>
+               <%:Html.TextBox("DebitorLName") %>
+           </td>
             <td>
                 <%: Html.TextBox("JobExperience") %>
             </td>
@@ -66,7 +72,10 @@
     <% foreach (var item in Model) { %>
         <tr>
             <td>
-                <%: Html.DisplayFor(modelItem => item.Debitor.PersonalID) %>
+                <%: Html.DisplayFor(modelItem => item.Debitor.FName) %>
+            </td>
+            <td>
+                <%: Html.DisplayFor(modelItem => item.Debitor.LName) %>
             </td>
             <td>
                 <%: Html.DisplayFor(modelItem => item.JobExperience) %>
