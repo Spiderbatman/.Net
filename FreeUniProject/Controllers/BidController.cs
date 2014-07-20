@@ -19,17 +19,18 @@ namespace FreeUniProject.Controllers
         {
 
 
-            
+
             IQueryable<Bid> bids;
-                   int k = Int32.Parse(User.Identity.Name);
-                   AppUser ap = db.AppUsers.FirstOrDefault(r => r.AppUserID == k);
-                    if (  ap != null && ap.AppUserType == 1) {
-                        bids = db.Bids.Include(b => b.AppUser).Include(b => b.Debitor);
-                    }
-                    else
-                    {
-                     bids = db.Bids.Include(b => b.AppUser).Include(b => b.Debitor).Where(r=>r.BidCreator == k);
-                    }
+            int k = Int32.Parse(User.Identity.Name);
+            AppUser ap = db.AppUsers.FirstOrDefault(r => r.AppUserID == k);
+            if (ap != null && ap.AppUserType == 1)
+            {
+                bids = db.Bids.Include(b => b.AppUser).Include(b => b.Debitor);
+            }
+            else
+            {
+                bids = db.Bids.Include(b => b.AppUser).Include(b => b.Debitor).Where(r => r.BidCreator == k);
+            }
 
             return View(bids.ToList());
         }
@@ -54,9 +55,18 @@ namespace FreeUniProject.Controllers
            
             IQueryable<Bid> bids;
 
-           
+            int k = Int32.Parse(User.Identity.Name);
+            AppUser ap = db.AppUsers.FirstOrDefault(r => r.AppUserID == k);
+            if (ap != null && ap.AppUserType == 1)
+            {
+                bids = db.Bids.Include(b => b.AppUser).Include(b => b.Debitor);
+            }
+            else
+            {
+                bids = db.Bids.Include(b => b.AppUser).Include(b => b.Debitor).Where(r => r.BidCreator == k);
+            }
           
-            bids = db.Bids.Include(b => b.AppUser).Include(b => b.Debitor);
+           
 
           /*  if (vals["DebitorID"].Length > 0)
             {
