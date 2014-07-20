@@ -62,7 +62,7 @@
                 <%: Html.LabelFor(model => model.BidStatus) %>
             </div>
             <div class="editor-field">
-                <%: Html.EditorFor(model => model.BidStatus) %>
+                <%: Html.DropDownList("BidStatus", String.Empty) %>
                 <%: Html.ValidationMessageFor(model => model.BidStatus) %>
             </div>
     

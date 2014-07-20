@@ -118,6 +118,7 @@ namespace FreeUniProject.Controllers
         {
             ViewBag.BidCreator = new SelectList(db.AppUsers, "AppUserID", "AppUserName");
             ViewBag.DebitorID = new SelectList(db.Debitors, "DebitorID", "PersonalID");
+            ViewBag.BidStatus = new SelectList(new String[]{"1", "2"});
             return View();
         }
 
@@ -136,6 +137,7 @@ namespace FreeUniProject.Controllers
 
             ViewBag.BidCreator = new SelectList(db.AppUsers, "AppUserID", "AppUserName", bid.BidCreator);
             ViewBag.DebitorID = new SelectList(db.Debitors, "DebitorID", "PersonalID", bid.DebitorID);
+            ViewBag.BidStatus = new SelectList(new String[] { "1", "2" });
             return View(bid);
         }
 
@@ -151,6 +153,7 @@ namespace FreeUniProject.Controllers
             }
             ViewBag.BidCreator = new SelectList(db.AppUsers, "AppUserID", "AppUserName", bid.BidCreator);
             ViewBag.DebitorID = new SelectList(db.Debitors, "DebitorID", "PersonalID", bid.DebitorID);
+            ViewBag.BidStatus = new SelectList(new String[] { "1", "2" });
             return View(bid);
         }
 
@@ -168,6 +171,7 @@ namespace FreeUniProject.Controllers
             }
             ViewBag.BidCreator = new SelectList(db.AppUsers, "AppUserID", "AppUserName", bid.BidCreator);
             ViewBag.DebitorID = new SelectList(db.Debitors, "DebitorID", "PersonalID", bid.DebitorID);
+            ViewBag.BidStatus = new SelectList(new String[] { "1", "2" });
             return View(bid);
         }
 
