@@ -9,14 +9,17 @@
 </head>
 <body>
     <div>
-        <%: Html.ActionLink("დებიტორები", "Index", "Debitor") %> <br />
+        
          <% FreeUniProject.BankDBEntities db = new FreeUniProject.BankDBEntities();
                    int k = Int32.Parse(User.Identity.Name);
                    FreeUniProject.AppUser ap = db.AppUsers.FirstOrDefault(r => r.AppUserID == k);
                     if (  ap != null && ap.AppUserType == 1) { %>
         <%: Html.ActionLink("მომხმარებლები", "Index", "AppUser") %> <br />
-        <% } %>
-        <%: Html.ActionLink("განაცხადები", "Index", "Bid") %> <br />
+       
+        <% } else {%>
+        <%:  Html.ActionLink("ახალი გაnაცხდი", "Create", "Bid") %> <br />
+        <%} %>
+         <%: Html.ActionLink("განაცხადები", "Index", "Bid") %> <br />
     </div>
 </body>
 </html>
