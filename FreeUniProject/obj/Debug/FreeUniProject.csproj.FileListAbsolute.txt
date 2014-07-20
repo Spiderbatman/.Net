@@ -26,3 +26,59 @@ C:\Users\ZUCA\Desktop\FreeUniProject\FreeUniProject\bin\System.Web.WebPages.Razo
 C:\Users\ZUCA\Desktop\FreeUniProject\FreeUniProject\obj\Debug\FreeUniProject.csprojResolveAssemblyReference.cache
 C:\Users\ZUCA\Desktop\FreeUniProject\FreeUniProject\obj\Debug\FreeUniProject.dll
 C:\Users\ZUCA\Desktop\FreeUniProject\FreeUniProject\obj\Debug\FreeUniProject.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\FreeUniProject.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\FreeUniProject.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\EntityFramework.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\Newtonsoft.Json.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Net.Http.Formatting.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.Helpers.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.Http.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.Http.WebHost.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.Mvc.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.Razor.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.WebPages.Deployment.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.WebPages.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.WebPages.Razor.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\EntityFramework.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\Newtonsoft.Json.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Net.Http.Formatting.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.Helpers.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.Http.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.Http.WebHost.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.Mvc.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.Razor.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.WebPages.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.WebPages.Deployment.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\bin\System.Web.WebPages.Razor.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\obj\Debug\FreeUniProject.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\obj\Debug\FreeUniProject.dll
+C:\Users\user\Documents\Visual Studio 2012\Projects\.Net\FreeUniProject\obj\Debug\FreeUniProject.pdb
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\FreeUniProject.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\FreeUniProject.pdb
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\EntityFramework.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\Newtonsoft.Json.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Net.Http.Formatting.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.Helpers.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.Http.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.Http.WebHost.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.Mvc.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.Razor.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.WebPages.Deployment.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.WebPages.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.WebPages.Razor.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\EntityFramework.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\Newtonsoft.Json.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Net.Http.Formatting.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.Helpers.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.Http.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.Http.WebHost.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.Mvc.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.Razor.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.WebPages.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.WebPages.Deployment.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\bin\System.Web.WebPages.Razor.xml
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\obj\Debug\FreeUniProject.csprojResolveAssemblyReference.cache
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\obj\Debug\FreeUniProject.dll
+C:\Users\MSSQLSERVER\.Net\FreeUniProject\obj\Debug\FreeUniProject.pdb
