@@ -85,12 +85,18 @@ namespace FreeUniProject.Controllers
                decimal d = Decimal.Parse(vals["Amount"]);
                bids = bids.Where(r => r.Amount == d);
             }
-            if (vals["BidDate"].Length > 0)
+ 
+            if (vals["dateFrom"].Length > 0)
             {
-                System.DateTime d = Convert.ToDateTime(vals["BidDate"]);
-                bids = bids.Where(r =>  DateTime.Compare(r.BidDate,d) == 0);
+               DateTime d = Convert.ToDateTime(vals["dateFrom"]);
+                bids = bids.Where(r =>  (DateTime)r.BidDate >= d);
             }
 
+            if (vals["dateTo"].Length > 0)
+            {
+                DateTime d = Convert.ToDateTime(vals["dateTo"]);
+               bids = bids.Where(r => (DateTime)r.BidDate < d);
+            }
 
             if (vals["BidCreator"].Length > 0)
             {

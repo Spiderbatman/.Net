@@ -55,11 +55,11 @@
                 <%: Html.TextBox("JobExperience") %>
             </td>
             <td class="editor-field">
-                 <%: Html.EditorFor(model => model.ElementAtOrDefault(0).BidDate) %>
+                 <%: Html.EditorFor(model => model.ElementAtOrDefault(0).BidDate,  "", "dateFrom") %>
                 <%: Html.ValidationMessageFor(model => model.ElementAtOrDefault(0).BidDate) %>
             </td>
               <td class="editor-field">
-                 <%: Html.EditorFor(model => model.ElementAtOrDefault(0).BidDate) %>
+                 <%: Html.EditorFor(model => model.ElementAtOrDefault(0).BidDate, "", "dateTo") %>
                 <%: Html.ValidationMessageFor(model => model.ElementAtOrDefault(0).BidDate) %>
             </td>
             <td>
