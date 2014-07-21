@@ -25,7 +25,10 @@
                 <%: Html.DisplayNameFor(model => model.JobExperience) %>
             </th>
             <th>
-                <%: Html.DisplayNameFor(model => model.BidDate) %>
+                BId Date From
+            </th>
+            <th>
+                Bid Date To
             </th>
             <th>
                 <%: Html.DisplayNameFor(model => model.AppUser.AppUserName) %>
@@ -51,8 +54,13 @@
             <td>
                 <%: Html.TextBox("JobExperience") %>
             </td>
-            <td>
-                <%: Html.TextBox("BidDate") %>
+            <td class="editor-field">
+                 <%: Html.EditorFor(model => model.ElementAtOrDefault(0).BidDate) %>
+                <%: Html.ValidationMessageFor(model => model.ElementAtOrDefault(0).BidDate) %>
+            </td>
+              <td class="editor-field">
+                 <%: Html.EditorFor(model => model.ElementAtOrDefault(0).BidDate) %>
+                <%: Html.ValidationMessageFor(model => model.ElementAtOrDefault(0).BidDate) %>
             </td>
             <td>
                 <%: Html.TextBox("BidCreator") %>
@@ -82,6 +90,9 @@
             </td>
             <td>
                 <%: Html.DisplayFor(modelItem => item.BidDate) %>
+            </td>
+            <td>
+             
             </td>
             <td>
                 <%: Html.DisplayFor(modelItem => item.AppUser.AppUserName) %>
